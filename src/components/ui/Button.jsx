@@ -7,7 +7,7 @@ export const Button = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-body uppercase font-medium tracking-wider transition-all duration-300 rounded-none focus:outline-none focus:ring-1 focus:ring-gold';
+  const baseStyles = 'inline-flex items-center justify-center font-body uppercase font-medium tracking-wider transition-all duration-300 rounded-full focus:outline-none focus:ring-1 focus:ring-gold';
   
   const variants = {
     primary: 'bg-gold text-stone-900 hover:bg-opacity-90 active:bg-opacity-100 border border-gold shadow-md hover:shadow-lg',

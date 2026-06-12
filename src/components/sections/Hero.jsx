@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { fadeUp, scaleIn } from '../../utils/animations';
 import Button from '../ui/Button';
 
 export const Hero = () => {
+  const images = ['/1.png', '/2.png', '/3.png', '/4.png', '/5.png'];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="bg-cream text-stone-900 min-h-[calc(100vh-80px)] flex flex-col justify-between pt-12 md:pt-16 pb-8 md:pb-12 px-6 md:px-12 relative overflow-hidden border-b border-stone-200">
       <div className="max-w-7xl mx-auto w-full flex-grow grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -34,7 +48,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
             <Link to="/products">
               <Button variant="outline" size="lg" className="w-full sm:w-auto border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white">
-                Explore Collection
+                Explore More
               </Button>
             </Link>
             
@@ -47,22 +61,43 @@ export const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Column: Hero Image */}
+        {/* Right Column: Hero Image Carousel */}
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={scaleIn}
           viewport={{ once: true }}
-          className="relative aspect-video lg:aspect-square w-full border border-stone-200 shadow-xl overflow-hidden bg-stone-50 group"
+          className="relative w-full max-w-sm md:max-w-md mx-auto lg:ml-auto p-3 bg-white border border-stone-200/60 shadow-2xl rounded-2xl md:rounded-3xl group aspect-[3/4]"
         >
           {/* Overlay to dim image slightly */}
-          <div className="absolute inset-0 bg-stone-950/5 z-10 transition-colors duration-500 group-hover:bg-transparent" />
+          <div className="absolute inset-0 bg-stone-950/5 z-10 transition-colors duration-500 group-hover:bg-transparent pointer-events-none rounded-xl md:rounded-2xl" />
           
-          <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
-            alt="Luxury kitchen featuring Great & Stone quartz granite sink"
-            className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-102"
-          />
+          <AnimatePresence mode="wait">
+            <motion.img 
+              key={currentIndex}
+              src={images[currentIndex]} 
+              alt={`Luxury kitchen featuring Great & Stone quartz granite sink - Image ${currentIndex + 1}`}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="w-full h-full object-cover rounded-xl md:rounded-2xl"
+            />
+          </AnimatePresence>
+
+          {/* Indicators / Dots */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2 bg-stone-950/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === index ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/85'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
 

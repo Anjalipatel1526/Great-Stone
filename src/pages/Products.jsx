@@ -84,7 +84,7 @@ export const Products = () => {
               <button
                 key={filter}
                 onClick={() => handleFilterChange(filter)}
-                className={`font-body text-xs font-semibold uppercase tracking-widest px-5 py-2.5 transition-all duration-300 ${
+                className={`font-body text-xs font-semibold uppercase tracking-widest px-5 py-2.5 transition-all duration-300 rounded-full ${
                   activeFilter === filter 
                     ? 'bg-stone-900 text-cream' 
                     : 'bg-stone-50 text-stone-600 hover:bg-stone-100 hover:text-stone-900'
@@ -178,7 +178,7 @@ export const Products = () => {
                   {/* Close button */}
                   <button 
                     onClick={() => setSelectedProduct(null)}
-                    className="absolute top-6 right-6 p-2 bg-stone-900/60 hover:bg-stone-900 text-cream transition-colors duration-200 focus:outline-none"
+                    className="absolute top-6 right-6 p-2 bg-stone-900/60 hover:bg-stone-900 text-cream transition-colors duration-200 rounded-full focus:outline-none"
                   >
                     <X size={20} />
                   </button>
