@@ -44,11 +44,11 @@ export const Navbar = () => {
     <div className="absolute top-4 md:top-6 left-0 right-0 z-50 w-full">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 relative">
         {/* Left Side: Logo & Brand Name */}
-        <Link to="/" className="flex items-center space-x-1 shrink-0">
+        <Link to="/" className="flex items-center space-x-0 shrink-0">
           <img 
             src="/logo.png" 
             alt="Great & Stone Logo" 
-            className="h-16 md:h-20 w-auto object-contain" 
+            className="h-16 md:h-20 w-auto object-contain -mr-2 md:-mr-3" 
           />
           <span className={`font-display text-lg md:text-xl font-bold tracking-wider transition-colors duration-300 ${textColor}`}>
             GREAT & STONE
