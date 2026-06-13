@@ -14,10 +14,7 @@ export const Home = () => {
     <div className="overflow-hidden">
       {/* 1. Hero Section */}
       <Hero />
-      
-      {/* Texture Strip Instance 1 */}
-      <TextureStrip text="75–80% Natural Quartz  ·  Advanced Polymerization Casting  ·  Gujarat & NCR Manufacturing" />
-      
+
       {/* 2. Why Choose Us */}
       <WhyChooseUs />
       

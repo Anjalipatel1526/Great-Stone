@@ -48,7 +48,7 @@ export const Navbar = () => {
           <img 
             src="/logo.png" 
             alt="Great & Stone Logo" 
-            className="h-12 md:h-14 w-auto object-contain" 
+            className="h-16 md:h-20 w-auto object-contain" 
           />
           <span className={`font-display text-lg md:text-xl font-bold tracking-wider transition-colors duration-300 ${textColor}`}>
             GREAT & STONE
