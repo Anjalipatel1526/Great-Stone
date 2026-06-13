@@ -45,7 +45,7 @@ export const About = () => {
     <div className="bg-cream min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative py-28 bg-grain-dark text-cream border-b border-stone-850">
+      <section className="relative pt-36 pb-28 bg-grain-dark text-cream border-b border-stone-850">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center z-10 space-y-6">
           <SectionLabel className="text-stone-400 justify-center">Our Heritage</SectionLabel>
           <motion.h1 

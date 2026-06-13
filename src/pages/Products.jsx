@@ -64,7 +64,7 @@ export const Products = () => {
   return (
     <div className="bg-stone-50 min-h-screen pb-24">
       {/* Page Header */}
-      <div className="bg-grain-dark py-20 text-center border-b border-stone-850">
+      <div className="bg-grain-dark pt-32 pb-20 text-center border-b border-stone-850">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center space-y-4">
           <SectionLabel className="text-stone-400">Our Collections</SectionLabel>
           <h1 className="font-display text-5xl md:text-6xl font-semibold text-cream tracking-tight">

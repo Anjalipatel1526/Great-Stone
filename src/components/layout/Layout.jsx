@@ -29,7 +29,7 @@ export const Layout = ({ children }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="flex-grow pt-28 md:pt-20" /* offset for sticky navbar */
+        className="flex-grow" /* full-bleed so hero sections start at top-0 under navbar */
       >
         {children}
       </motion.main>

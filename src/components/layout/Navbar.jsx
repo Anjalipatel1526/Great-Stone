@@ -38,21 +38,17 @@ export const Navbar = () => {
 
   const active = getActiveItem();
 
-  const isHomePage = location.pathname === '/';
-  const textColor = isHomePage ? "text-stone-900" : "text-cream";
+  const textColor = "text-white";
 
   return (
-    <div className="absolute top-6 left-0 right-0 z-50 w-full">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 relative">
+    <div className="absolute top-4 md:top-6 left-0 right-0 z-50 w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 relative">
         {/* Left Side: Logo & Brand Name */}
         <Link to="/" className="flex items-center space-x-3 shrink-0">
           <img 
             src="/logo.png" 
             alt="Great & Stone Logo" 
-            className={cn(
-              "h-12 md:h-14 w-auto object-contain",
-              isHomePage ? "mix-blend-multiply" : "invert"
-            )} 
+            className="h-12 md:h-14 w-auto object-contain" 
           />
           <span className={`font-display text-lg md:text-xl font-bold tracking-wider transition-colors duration-300 ${textColor}`}>
             GREAT & STONE
@@ -62,7 +58,7 @@ export const Navbar = () => {
         {/* Center: Floating Glassmorphic Nav Pill */}
         <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
           <nav className={cn(
-            "flex p-1.5 gap-2 items-center bg-white/20 backdrop-blur-xl border border-white/30 rounded-full shadow-lg ring-1 ring-black/5"
+            "flex p-1.5 gap-2 items-center bg-stone-950/40 backdrop-blur-xl border border-white/10 rounded-full shadow-lg ring-1 ring-black/5"
           )}>
             {navItems.map((item) => (
               <Link
@@ -70,13 +66,13 @@ export const Navbar = () => {
                 to={item.path}
                 className={cn(
                   "relative px-5 py-2 text-sm md:text-base font-semibold transition-colors duration-300 rounded-full",
-                  active === item.name ? "text-black" : "text-black/60 hover:text-black"
+                  active === item.name ? "text-white" : "text-white/60 hover:text-white"
                 )}
               >
                 {active === item.name && (
                   <motion.div
                     layoutId="glass-active"
-                    className="absolute inset-0 bg-white/80 shadow-sm rounded-full backdrop-blur-md"
+                    className="absolute inset-0 bg-white/10 border border-white/20 shadow-sm rounded-full backdrop-blur-md"
                     transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                   />
                 )}
@@ -92,7 +88,7 @@ export const Navbar = () => {
         {/* Mobile View Navigation (Fallback for small screens) */}
         <div className="md:hidden">
           <nav className={cn(
-            "flex p-1 gap-1 items-center bg-white/20 backdrop-blur-xl border border-white/30 rounded-full shadow-md ring-1 ring-black/5"
+            "flex p-1 gap-1 items-center bg-stone-950/40 backdrop-blur-xl border border-white/10 rounded-full shadow-md ring-1 ring-black/5"
           )}>
             {navItems.map((item) => (
               <Link
@@ -100,13 +96,13 @@ export const Navbar = () => {
                 to={item.path}
                 className={cn(
                   "relative px-2.5 py-1 text-xs font-medium transition-colors duration-300 rounded-full",
-                  active === item.name ? "text-black" : "text-black/60"
+                  active === item.name ? "text-white" : "text-white/60"
                 )}
               >
                 {active === item.name && (
                   <motion.div
                     layoutId="glass-active-mobile"
-                    className="absolute inset-0 bg-white/80 shadow-sm rounded-full backdrop-blur-md"
+                    className="absolute inset-0 bg-white/10 border border-white/20 shadow-sm rounded-full backdrop-blur-md"
                     transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                   />
                 )}
